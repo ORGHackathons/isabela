@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Isabela Palhano — Design de Rótulos & Embalagens</title>
+  <meta name="description" content="Portfólio de Isabela Palhano, designer de rótulos para latas de refrigerante e embalagens. Showreel 3D com coleção autoral de latas, artes-finais e projetos de embalagem.">
+  <meta name="theme-color" content="#140405">
+  <meta name="author" content="Isabela Palhano">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Isabela Palhano — Design de Rótulos & Embalagens">
+  <meta property="og:description" content="Rótulos que fazem a lata girar na prateleira. Showreel 3D, artes-finais e embalagens autorais.">
+  <meta property="og:url" content="https://orghackathons.github.io/isabela/">
+  <meta property="og:image" content="https://orghackathons.github.io/isabela/assets/og.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://orghackathons.github.io/isabela/assets/og.jpg">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Caveat:wght@500;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- camadas fixas -->
+  <div class="bg-layer" aria-hidden="true"><span class="bg-word"></span></div>
+  <canvas id="webgl" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- loader -->
+  <div id="loader" role="status" aria-live="polite">
+    <div class="loader-box">
+      <div class="loader-can" aria-hidden="true"><i></i><b></b></div>
+      <div>
+        <p class="loader-pct">00</p>
+        <p class="loader-txt">abrindo a lata<span>…</span></p>
+      </div>
+    </div>
+    <p class="loader-name">Isabela Palhano · Design de rótulos</p>
+  </div>
+
+  <!-- cursor -->
+  <div class="cursor" aria-hidden="true">
+    <span class="cursor-dot"></span>
+    <span class="cursor-ring"><em class="cursor-label"></em></span>
+  </div>
+
+  <!-- navegação -->
+  <header class="nav">
+    <a class="brand" href="#hero" aria-label="Isabela Palhano — início">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="9" y="3" width="22" height="34" rx="6" fill="currentColor"/><path d="M9 21c4-3 9 3 22-1v5c-12 4-18-2-22 1z" fill="#140405"/><rect x="12" y="1" width="16" height="4" rx="2" fill="currentColor" opacity=".6"/></svg>
+      <span>Isabela Palhano</span>
+    </a>
+    <nav class="nav-links" aria-label="Seções">
+      <a href="#reel">Showreel</a>
+      <a href="#galeria">Arte-final</a>
+      <a href="#embalagens">Embalagens</a>
+      <a href="#processo">Processo</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="nav-cta magnetic" href="https://wa.me/5585981488265?text=Oi%2C%20Isabela!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20um%20projeto%20de%20r%C3%B3tulo." target="_blank" rel="noopener" data-cursor="WhatsApp">
+      <span class="dot"></span> Disponível para projetos
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <h1 class="hero-name" aria-label="Isabela Palhano">
+        <span class="line"><span class="word">Isabela</span></span>
+        <span class="line outline"><span class="word">Palhano</span></span>
+      </h1>
+      <div class="hero-drag" data-cursor="Arraste" aria-hidden="true"></div>
+      <div class="hero-ui">
+        <p class="eyebrow"><span class="pill">Portfólio 2026</span> Design de rótulos <em>&amp;</em> embalagens</p>
+        <div class="hero-bottom">
+          <p class="hero-lead">Rótulos que fazem a lata <em>girar</em> na prateleira — e a pessoa esticar a mão.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary magnetic" id="play-reel" data-cursor="Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              Assistir ao reel
+            </button>
+            <a class="btn btn-ghost magnetic" href="https://wa.me/5585981488265?text=Oi%2C%20Isabela!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20um%20projeto%20de%20r%C3%B3tulo." target="_blank" rel="noopener" data-open-can>Falar no WhatsApp</a>
+          </div>
+        </div>
+        <ul class="hero-meta">
+          <li>Lata 350 ml</li>
+          <li>360° de design</li>
+          <li>Fortaleza → Mundo</li>
+        </ul>
+        <a class="scroll-hint" href="#sobre"><i></i> role para abrir</a>
+      </div>
+    </section>
+
+    <!-- SOBRE / MANIFESTO -->
+    <section id="sobre" class="section manifesto">
+      <div class="manifesto-grid">
+        <div class="manifesto-space" aria-hidden="true"></div>
+        <div class="manifesto-body">
+          <p class="kicker">( Sobre ) — 01</p>
+          <p class="manifesto-text">Uma lata tem 360 graus de palco. Eu desenho cada um deles — do logo que te chama lá da prateleira ao código de barras que ninguém repara. Mas eu reparo.</p>
+          <div class="about-cols">
+            <p class="reveal">Sou <strong>Isabela Palhano</strong>, designer apaixonada por rótulos e embalagens — com um carinho especial pelas latinhas de refrigerante. Meu trabalho junta tipografia com personalidade, cor que dá sede e um olhar obsessivo para como a arte se comporta na curva do alumínio. Cresci admirando a lata vermelha mais famosa do planeta, e é com essa régua que eu desenho.</p>
+            <dl class="facts reveal">
+              <div><dt>Base</dt><dd>Fortaleza · CE · Brasil</dd></div>
+              <div><dt>Foco</dt><dd>Rótulos para latas &amp; bebidas</dd></div>
+              <div><dt>Também</dt><dd>Garrafas, potes, caixas, identidade</dd></div>
+              <div><dt>Status</dt><dd><span class="dot"></span> Aberta a novos projetos</dd></div>
+            </dl>
+          </div>
+          <ul class="stats">
+            <li class="reveal"><b data-count="6" data-pad="2">00</b><span>latas autorais na coleção</span></li>
+            <li class="reveal"><b><span data-count="360">0</span>°</b><span>de arte em cada rótulo</span></li>
+            <li class="reveal"><b><span data-count="350">0</span><small>ml</small></b><span>de personalidade por lata</span></li>
+            <li class="reveal"><b>∞</b><span>ideias bem geladas</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWREEL -->
+    <section id="reel" class="reel">
+      <div class="reel-head">
+        <p class="kicker">( Showreel ) — 02</p>
+        <h2 class="reel-title">Coleção <em>autoral</em> de latas</h2>
+      </div>
+      <div class="reel-info"></div>
+      <div class="reel-progress">
+        <span class="reel-count"><b class="reel-current">01</b> / <span class="reel-total">06</span></span>
+        <div class="reel-bar"><i></i></div>
+        <span class="reel-hint">role para girar a lata</span>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-inner">
+        <div class="marquee-track">
+          <span>Rótulos que dão sede</span><i>✦</i><span>Embalagens que vendem</span><i>✦</i><span>Design 360°</span><i>✦</i><span>Feito no Ceará</span><i>✦</i>
+          <span>Rótulos que dão sede</span><i>✦</i><span>Embalagens que vendem</span><i>✦</i><span>Design 360°</span><i>✦</i><span>Feito no Ceará</span><i>✦</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTE-FINAL -->
+    <section id="galeria" class="gallery">
+      <div class="gallery-track">
+        <div class="gallery-intro">
+          <p class="kicker">( Arte-final ) — 03</p>
+          <h2 class="section-title">Do alumínio <em>ao arquivo.</em></h2>
+          <p>Por trás de cada lata existe uma planificação milimétrica: sangria, área de segurança, emenda e marcas de corte. É aqui que a ideia vira arquivo pronto para a gráfica — sem surpresas na linha de envase.</p>
+          <span class="drag-hint">continue rolando <i>→</i></span>
+        </div>
+        <a class="sheet sheet-cta" href="https://wa.me/5585981488265?text=Oi%2C%20Isabela!%20Quero%20um%20r%C3%B3tulo%20para%20a%20minha%20marca." target="_blank" rel="noopener" data-cursor="Bora!">
+          <span class="kicker">Próxima prancha</span>
+          <strong>A sua marca <em>pode ser a próxima.</em></strong>
+          <span class="btn btn-wa">Começar um projeto</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- EMBALAGENS -->
+    <section id="embalagens" class="products">
+      <div class="products-head">
+        <p class="kicker">( Além das latas ) — 04</p>
+        <h2 class="reel-title">Garrafas, potes, caixas — <em>tudo que merece um rótulo.</em></h2>
+      </div>
+      <div class="products-info"></div>
+      <div class="reel-progress products-progress">
+        <span class="reel-count"><b class="products-current">01</b> / <span class="products-total">03</span></span>
+        <div class="reel-bar products-bar"><i></i></div>
+        <span class="reel-hint">embalagens autorais</span>
+      </div>
+    </section>
+
+    <!-- PROCESSO -->
+    <section id="processo" class="section process">
+      <div class="process-inner">
+        <p class="kicker">( Processo ) — 05</p>
+        <h2 class="section-title reveal">Do rabisco <em>à gôndola.</em></h2>
+        <p class="process-lead reveal">Repare na lata: ela começa como rascunho e vira arte-final enquanto você desce.</p>
+        <ol class="steps">
+          <li class="step"><span class="step-n">01</span><div><h3>Briefing &amp; imersão</h3><p>Entendo a marca, o público, o sabor e o lugar onde a lata vai disputar atenção.</p></div></li>
+          <li class="step"><span class="step-n">02</span><div><h3>Pesquisa de gôndola</h3><p>Analiso concorrentes, códigos de cor do segmento e o que faz alguém esticar a mão.</p></div></li>
+          <li class="step"><span class="step-n">03</span><div><h3>Rascunho &amp; conceito</h3><p>Do papel ao primeiro layout: tipografia, hierarquia e a história que o rótulo vai contar.</p></div></li>
+          <li class="step"><span class="step-n">04</span><div><h3>Arte-final 360°</h3><p>Planificação com sangria, emenda e área segura. Cada milímetro pensado para a curva do alumínio.</p></div></li>
+          <li class="step"><span class="step-n">05</span><div><h3>Mockup 3D &amp; produção</h3><p>Visualização realista antes da gráfica e acompanhamento até a lata sair gelada da linha.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="section services">
+      <div class="services-inner">
+        <p class="kicker">( Serviços ) — 06</p>
+        <h2 class="section-title reveal">O que eu posso <em>criar pra você.</em></h2>
+        <div class="services-grid">
+          <article class="service reveal">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="6" width="22" height="36" rx="5"/><path d="M13 20c5-3 12 3 22-1M13 28c5-3 12 3 22-1"/><path d="M17 4h14"/></svg>
+            <h3>Rótulos para latas</h3>
+            <p>Refrigerantes, energéticos, cervejas, águas e drinks prontos. Arte 360° pensada para a curva.</p>
+          </article>
+          <article class="service reveal">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M20 4h8v8l4 6v24a2 2 0 0 1-2 2H18a2 2 0 0 1-2-2V18l4-6z"/><path d="M16 24h16v10H16z"/></svg>
+            <h3>Garrafas &amp; potes</h3>
+            <p>Rótulos para vidro e PET, com faca especial, papéis texturizados e acabamentos nobres.</p>
+          </article>
+          <article class="service reveal">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 16 24 7l18 9v18l-18 9-18-9z"/><path d="m6 16 18 9 18-9M24 25v18"/></svg>
+            <h3>Caixas &amp; cartuchos</h3>
+            <p>Embalagens de papel-cartão, faca e planificação, do chocolate ao kit de presente.</p>
+          </article>
+          <article class="service reveal">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M24 12v24M15 18c3 3 15 3 18 0M15 30c3-3 15-3 18 0"/></svg>
+            <h3>Identidade de marca</h3>
+            <p>Logotipo, paleta, tipografia e sistema visual para a marca nascer pronta para a gôndola.</p>
+          </article>
+          <article class="service reveal">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 41 15v18L24 43 7 33V15z"/><path d="m7 15 17 10 17-10M24 25v18"/><circle cx="24" cy="25" r="3"/></svg>
+            <h3>Mockups 3D</h3>
+            <p>Visualização realista do produto para apresentar ao cliente, lançar no digital e aprovar sem susto.</p>
+          </article>
+          <article class="service reveal">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m24 5 5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z"/></svg>
+            <h3>Edições limitadas</h3>
+            <p>Latas sazonais, colabs e séries colecionáveis — aquele rótulo que ninguém joga fora.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contact">
+      <p class="contact-giant" aria-hidden="true">PSSST!</p>
+      <div class="contact-ui">
+        <p class="kicker">( Contato ) — 07</p>
+        <h2 class="contact-title">Bora abrir uma lata <em>juntos?</em></h2>
+        <p class="contact-lead">Tem uma marca, um sabor novo ou uma ideia maluca de embalagem? Me chama no WhatsApp e vamos colocar a sua marca na mão das pessoas.</p>
+        <a class="btn btn-wa btn-xl magnetic" href="https://wa.me/5585981488265?text=Oi%2C%20Isabela!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20um%20projeto%20de%20r%C3%B3tulo." target="_blank" rel="noopener" data-open-can data-cursor="Psst!">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.42 1.3-1.96 1.35-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.94-4.36-.15-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.58-.36.77-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.2-.14.31-.29.48-.14.17-.3.38-.43.5-.14.15-.29.3-.12.6.17.29.75 1.24 1.61 2 1.1.98 2.04 1.28 2.33 1.43.29.14.46.12.63-.08.17-.19.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.21.55.33.07.12.07.7-.17 1.38Z"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="contact-number" href="https://wa.me/5585981488265" target="_blank" rel="noopener">+55 85 98148-8265</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <p class="footer-big">Isabela<br><em>Palhano</em></p>
+      <div class="footer-links">
+        <a href="#reel">Showreel</a>
+        <a href="#galeria">Arte-final</a>
+        <a href="#embalagens">Embalagens</a>
+        <a href="#processo">Processo</a>
+        <a href="https://wa.me/5585981488265" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#hero">Voltar ao topo ↑</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Isabela Palhano — Design de rótulos &amp; embalagens · Fortaleza, CE</p>
+      <p>Fizza, Tropik, Onda, Caju Club, Citra, Noir, Brota, Mel de Aroeira e Cacau Cariri são marcas fictícias criadas como projetos autorais.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante -->
+  <a class="wa-float" href="https://wa.me/5585981488265?text=Oi%2C%20Isabela!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20um%20projeto%20de%20r%C3%B3tulo." target="_blank" rel="noopener" aria-label="Conversar com Isabela no WhatsApp" data-cursor="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.42 1.3-1.96 1.35-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.94-4.36-.15-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.58-.36.77-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.2-.14.31-.29.48-.14.17-.3.38-.43.5-.14.15-.29.3-.12.6.17.29.75 1.24 1.61 2 1.1.98 2.04 1.28 2.33 1.43.29.14.46.12.63-.08.17-.19.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.21.55.33.07.12.07.7-.17 1.38Z"/></svg>
+  </a>
+
+  <noscript><div class="noscript">Este portfólio é interativo e precisa de JavaScript para mostrar as latas em 3D. Fale com a Isabela pelo WhatsApp: +55 85 98148-8265.</div></noscript>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+  <script>
+    // rede de segurança: se algo falhar no carregamento, o site aparece mesmo assim
+    setTimeout(function () {
+      if (window.__siteReady) return;
+      document.documentElement.classList.add('no-webgl', 'failsafe');
+      var l = document.getElementById('loader');
+      if (l) l.remove();
+    }, 15000);
+  </script>
+</body>
+</html>
